@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint"
   },
-  "dependencies": {
+  "dependencies": { 
     "@headlessui/react": "^1.6.2",
     "@heroicons/react": "^1.0.6",
     "@paypal/react-paypal-js": "^7.8.1",
