@@ -45,8 +45,8 @@ export default function LoginScreen() {
         onSubmit={handleSubmit(submitHandler)}
       >
         <h1 className="mb-4 text-xl">Login</h1>
-        <div className="mb-4">
-          <label htmlFor="email">Email</label>
+        <div className="mb-4 flex flex-col items-start ">
+          <label className='text-[.7rem]' htmlFor="email">Email</label>
           <input
             type="email"
             {...register('email', {
@@ -56,7 +56,7 @@ export default function LoginScreen() {
                 message: 'Please enter valid email',
               },
             })}
-            className="w-full"
+            className="w-[50%]"
             id="email"
             autoFocus
           ></input>
@@ -64,15 +64,15 @@ export default function LoginScreen() {
             <div className="text-red-500">{errors.email.message}</div>
           )}
         </div>
-        <div className="mb-4">
-          <label htmlFor="password">Password</label>
+        <div className="mb-4 flex flex-col items-start">
+          <label htmlFor="password" className='text-[.7rem]'>Password</label>
           <input
             type="password"
             {...register('password', {
               required: 'Please enter password',
               minLength: { value: 6, message: 'password is more than 5 chars' },
             })}
-            className="w-full"
+            className="w-[50%]"
             id="password"
             autoFocus
           ></input>

@@ -53,11 +53,11 @@ export default function LoginScreen() {
         onSubmit={handleSubmit(submitHandler)}
       >
         <h1 className="mb-4 text-xl">Create Account</h1>
-        <div className="mb-4">
+        <div className="mb-4 flex flex-col items-start">
           <label htmlFor="name">Name</label>
           <input
             type="text"
-            className="w-full"
+            className="w-[50%]"
             id="name"
             autoFocus
             {...register('name', {
@@ -69,7 +69,7 @@ export default function LoginScreen() {
           )}
         </div>
 
-        <div className="mb-4">
+        <div className="mb-4 flex flex-col items-start">
           <label htmlFor="email">Email</label>
           <input
             type="email"
@@ -80,14 +80,14 @@ export default function LoginScreen() {
                 message: 'Please enter valid email',
               },
             })}
-            className="w-full"
+            className="w-[50%]"
             id="email"
           ></input>
           {errors.email && (
             <div className="text-red-500">{errors.email.message}</div>
           )}
         </div>
-        <div className="mb-4">
+        <div className="mb-4 flex flex-col items-start">
           <label htmlFor="password">Password</label>
           <input
             type="password"
@@ -95,7 +95,7 @@ export default function LoginScreen() {
               required: 'Please enter password',
               minLength: { value: 6, message: 'password is more than 5 chars' },
             })}
-            className="w-full"
+            className="w-[50%]"
             id="password"
             autoFocus
           ></input>
@@ -103,10 +103,10 @@ export default function LoginScreen() {
             <div className="text-red-500 ">{errors.password.message}</div>
           )}
         </div>
-        <div className="mb-4">
+        <div className="mb-4 flex flex-col items-start">
           <label htmlFor="confirmPassword">Confirm Password</label>
           <input
-            className="w-full"
+            className="w-[50%]"
             type="password"
             id="confirmPassword"
             {...register('confirmPassword', {
@@ -129,12 +129,12 @@ export default function LoginScreen() {
             )}
         </div>
 
-        <div className="mb-4 ">
+        <div className="mb-4">
           <button className="primary-button">Register</button>
         </div>
         <div className="mb-4 ">
-          Don&apos;t have an account? &nbsp;
-          <Link href={`/register?redirect=${redirect || '/'}`}>Register</Link>
+          Have an account? &nbsp;
+          <Link href={`/login?redirect=${redirect || '/'}`}>Login</Link>
         </div>
       </form>
     </Layout>

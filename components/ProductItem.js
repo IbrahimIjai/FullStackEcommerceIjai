@@ -10,18 +10,19 @@ export default function ProductItem({ product, addToCartHandler }) {
           <img
             src={product.image}
             alt={product.name}
-            className="rounded shadow object-cover h-64 w-full"
+            className="rounded hover:scale-105 shadow object-cover h-44 w-full"
           />
         </a>
       </Link>
-      <div className="flex flex-col items-center justify-center p-5">
+      <div className="flex flex-col items-start justify-center p-3">
         <Link href={`/product/${product.slug}`}>
           <a>
-            <h2 className="text-lg">{product.name}</h2>
+            <h2 className="text-lg font-bold text-[.9rem]">{product.name}</h2>
           </a>
         </Link>
-        <p className="mb-2">{product.brand}</p>
-        <p>${product.price}</p>
+        <p className="mb-2 text-[.8rem]">{product.brand}</p>
+        <div className="flex  items-center space-x-8">
+          <p className='font-bold text-[.9rem]'>${product.price}</p>
         <button
           className="primary-button"
           type="button"
@@ -29,6 +30,8 @@ export default function ProductItem({ product, addToCartHandler }) {
         >
           Add to cart
         </button>
+        </div>
+        
       </div>
     </div>
   );
