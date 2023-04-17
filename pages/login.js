@@ -41,7 +41,7 @@ export default function LoginScreen() {
   return (
     <Layout title="Login">
       <form
-        className="mx-auto max-w-screen-md"
+        className="mx-auto max-w-screen-md h-screen  flex flex-col justify-center items-center"
         onSubmit={handleSubmit(submitHandler)}
       >
         <h1 className="mb-4 text-xl">Login</h1>
@@ -56,7 +56,7 @@ export default function LoginScreen() {
                 message: 'Please enter valid email',
               },
             })}
-            className="w-[50%]"
+            className="w-[250px] lg:w-[350px]"
             id="email"
             autoFocus
           ></input>
@@ -72,7 +72,7 @@ export default function LoginScreen() {
               required: 'Please enter password',
               minLength: { value: 6, message: 'password is more than 5 chars' },
             })}
-            className="w-[50%]"
+            className="w-[250px] lg:w-[350px]"
             id="password"
             autoFocus
           ></input>
@@ -81,7 +81,7 @@ export default function LoginScreen() {
           )}
         </div>
         <div className="mb-4 ">
-          <button className="primary-button">Login</button>
+          <button className="primary-button w-[250px] lg:w-[350px]">Login</button>
         </div>
         <div className="mb-4 ">
           Don&apos;t have an account? &nbsp;

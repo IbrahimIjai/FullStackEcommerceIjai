@@ -15,16 +15,16 @@ const RenderThemeChanger = () => {
   const currentTheme = theme === "system" ? systemTheme : theme;
 
   return (
-    <div className="text-blue-600">
+    <div className="text-blue-600 dark:text-blue-100">
       {currentTheme === "dark" ? (
         <BsSun
-          // className="w-6 h-6 text-green-100"
+          size={30}
           role="button"
           onClick={() => setTheme("light")}
         />
       ) : (
         <BsMoonStars
-          // className="w-6 h-6 text-gray-900 "
+          size={30}
           role="button"
           onClick={() => setTheme("dark")}
         />

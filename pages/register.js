@@ -49,7 +49,7 @@ export default function LoginScreen() {
   return (
     <Layout title="Create Account">
       <form
-        className="mx-auto max-w-screen-md"
+        className="mx-auto w-screen h-screen flex flex-col items-center justify-center "
         onSubmit={handleSubmit(submitHandler)}
       >
         <h1 className="mb-4 text-xl">Create Account</h1>
@@ -57,7 +57,7 @@ export default function LoginScreen() {
           <label htmlFor="name">Name</label>
           <input
             type="text"
-            className="w-[50%]"
+            className="w-[250px] lg:w-[350px]"
             id="name"
             autoFocus
             {...register('name', {
@@ -80,7 +80,7 @@ export default function LoginScreen() {
                 message: 'Please enter valid email',
               },
             })}
-            className="w-[50%]"
+            className="w-[250px] lg:w-[350px]"
             id="email"
           ></input>
           {errors.email && (
@@ -95,7 +95,7 @@ export default function LoginScreen() {
               required: 'Please enter password',
               minLength: { value: 6, message: 'password is more than 5 chars' },
             })}
-            className="w-[50%]"
+            className="w-[250px] lg:w-[350px]"
             id="password"
             autoFocus
           ></input>
@@ -106,7 +106,7 @@ export default function LoginScreen() {
         <div className="mb-4 flex flex-col items-start">
           <label htmlFor="confirmPassword">Confirm Password</label>
           <input
-            className="w-[50%]"
+            className="w-[250px] lg:w-[350px]"
             type="password"
             id="confirmPassword"
             {...register('confirmPassword', {
@@ -130,7 +130,7 @@ export default function LoginScreen() {
         </div>
 
         <div className="mb-4">
-          <button className="primary-button">Register</button>
+          <button className="primary-button w-[250px] lg:w-[350px]">Register</button>
         </div>
         <div className="mb-4 ">
           Have an account? &nbsp;
