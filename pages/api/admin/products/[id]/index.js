@@ -1,20 +1,20 @@
-import { getSession } from 'next-auth/react';
+// import { getSession } from 'next-auth/react';
 import Product from '../../../../../models/Product';
 import db from '../../../../../utils/db';
 
 const handler = async (req, res) => {
-  const session = await getSession({ req });
-  if (!session || (session && !session.user.isAdmin)) {
-    return res.status(401).send('signin required');
-  }
+  // const session = await getSession({ req });
+  // if (!session || (session && !session.user.isAdmin)) {
+  //   return res.status(401).send('signin required');
+  // }
 
-  const { user } = session;
+  // const { user } = session;
   if (req.method === 'GET') {
-    return getHandler(req, res, user);
+    return getHandler(req, res);
   } else if (req.method === 'PUT') {
-    return putHandler(req, res, user);
+    return putHandler(req, res);
   } else if (req.method === 'DELETE') {
-    return deleteHandler(req, res, user);
+    return deleteHandler(req, res);
   } else {
     return res.status(400).send({ message: 'Method not allowed' });
   }

@@ -11,9 +11,9 @@ body {
   /* @apply  dark:bg-lime-900 bg-cyan-400 dark:text-white;  */
 }
 
-a {
-  @apply text-blue-600 hover:text-blue-800;
-}
+/* a {
+  @apply ;
+} */
 
 * {
   box-sizing: border-box;
@@ -24,10 +24,20 @@ a {
 }
 
 .primary-button {
-  @apply rounded bg-blue-300 dark:bg-blue-800 py-2 px-2 shadow outline-none hover:bg-blue-900 text-[.7rem]  active:bg-amber-500;
+  @apply p-2 border bg-primary rounded-xl hover:scale-105 transition-all duration-700 text-gray-100 flex items-center justify-center space-x-2;
 }
 .default-button {
   @apply rounded bg-gray-100 py-1 text-[.8rem]  px-4 text-black shadow outline-none hover:bg-gray-200  active:bg-gray-300;
+}
+.AvatarRoot{
+  @apply  inline-flex items-center justify-center overflow-hidden w-[45px]
+  h-[45px] rounded-full bg-slate-600;
+}
+.AvatarFallback{
+  @apply w-full h-full flex items-center justify-center bg-slate-500 text-[.9rem] ;
+}
+.AvatarImage{
+@apply  w-full h-full object-cover rounded-full;
 }
 
 input,
