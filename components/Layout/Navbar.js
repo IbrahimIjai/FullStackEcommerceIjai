@@ -38,7 +38,7 @@ export default function Navbar() {
 		router.push(`/search?query=${query}`);
 	};
 	return (
-		<header className="bg-gray-100  w-screen h-[80px] flex items-center justify-center">
+		<header className="bg-gray-100 z-50 text-primary fixed top-0 right-0 left-0   w-screen h-[80px] flex items-center justify-center">
 			<nav className="flex  h-12 items-center px-8 justify-between w-[100%]">
 				<Link href="/">
 					<a className="text-lg flex gap-1 lg:gap-2 items-center text-primary  font-bold">
@@ -74,7 +74,7 @@ export default function Navbar() {
 
 					<div>
 						<Link href="/cart">
-							<a className="p-2 flex items-center justify-center relative space-x-3">
+							<a className="text-primary p-2 flex items-center justify-center relative space-x-3">
 								<AiOutlineShoppingCart
 									className="hover:scale-105 transition-all duration-700"
 									size={32}

@@ -20,7 +20,14 @@ body {
 }
 
 .card {
-  @apply mb-5  block  w-[300px]  rounded-lg border border-gray-200  shadow-md;
+  @apply relative mb-5 mx-auto border overflow-hidden  w-[300px]   rounded-xl border border-gray-200  shadow-md;
+}
+
+.sortBtn{
+  @apply p-2 mr-8 border font-semibold border-primary rounded-xl hover:bg-slate-200 transition-all duration-700 cursor-pointer;
+}
+.stickyDiv{
+  @apply  sticky top-[80px]; 
 }
 
 .primary-button {
@@ -30,8 +37,8 @@ body {
   @apply rounded bg-gray-100 py-1 text-[.8rem]  px-4 text-black shadow outline-none hover:bg-gray-200  active:bg-gray-300;
 }
 .AvatarRoot{
-  @apply  inline-flex items-center justify-center overflow-hidden w-[45px]
-  h-[45px] rounded-full bg-slate-600;
+  @apply  inline-flex items-center justify-center overflow-hidden w-[40px]
+  h-[40px] rounded-full bg-slate-600;
 }
 .AvatarFallback{
   @apply w-full h-full flex items-center justify-center bg-slate-500 text-[.9rem] ;

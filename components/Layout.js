@@ -1,3 +1,4 @@
+/** @format */
 
 import Head from "next/head";
 import React from "react";
@@ -6,8 +7,6 @@ import "react-toastify/dist/ReactToastify.css";
 import Navbar from "./Layout/Navbar";
 import Footer from "./Layout/Footer";
 export default function Layout({ title, children }) {
-
-
 	return (
 		<>
 			<Head>
@@ -16,15 +15,14 @@ export default function Layout({ title, children }) {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 
-			<ToastContainer position="bottom-center" limit={1} />
+			<ToastContainer position="overflow-x-hidden" limit={1} />
 
-			<div className="">
+			<div className="min-h-screen flex flex-col  justify-between">
+				<>
 				<Navbar />
-				<main className="w-screen m-auto px-8">
-					{children}
-				</main>
-			
-        <Footer/>
+				<main className="w-screen mt-[80px]">{children}</main></>
+
+				<Footer />
 			</div>
 		</>
 	);

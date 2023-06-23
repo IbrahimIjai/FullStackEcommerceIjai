@@ -7,7 +7,7 @@ import { ThemeProvider } from "next-themes";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   return (
-    <ThemeProvider attribute="class">
+    // <ThemeProvider attribute="class">
       <SessionProvider session={session}>
         <StoreProvider>
           <PayPalScriptProvider deferLoading={true}>
@@ -21,7 +21,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
           </PayPalScriptProvider>
         </StoreProvider>
       </SessionProvider>
-    </ThemeProvider>
+    // </ThemeProvider>
   );
 }
 
