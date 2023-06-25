@@ -49,17 +49,17 @@ function Storee({ products }) {
 	};
 
 	const filterProducts = (brand, category, name) => {
-        console.log("yooo");
-        setActiveBtn(name)
-        console.log(name);
-        const sortedProduct = products.filter(
-			(displayItems) => displayItems.brand === brand && displayItems.category === category,
+		console.log("yooo");
+		setActiveBtn(name);
+		console.log(name);
+		const sortedProduct = products.filter(
+			(displayItems) =>
+				displayItems.brand === brand && displayItems.category === category,
 		);
-        console.log(sortedProduct)
-		setDisplayItems(sortedProduct)
-	}
+		console.log(sortedProduct);
+		setDisplayItems(sortedProduct);
+	};
 
-    
 	return (
 		<Layout title="Store - Dapperfolio">
 			<div
@@ -68,55 +68,73 @@ function Storee({ products }) {
 				<h1 className="text-3xl font-bold">Store</h1>
 				<div className="flex items-center">
 					<div
-						className={`sortBtn ${
+						onClick={() => {
+							setDisplayItems(products);
+							setActiveBtn("All");
+						}}
+						className={`sortBtn hover:bg-slate-200 ${
 							activeBtn == "All" && "bg-black text-white"
 						}`}>
 						<p>All</p>
 					</div>
-					<Menu as="div" className="sortBtn relative inline-block">
-						<Menu.Button className={`flex items-center ${activeBtn == "Apple" && "bg-primary text-white"}`}>
+					<Menu
+						as="div"
+						className={`sortBtn ${
+							activeBtn == "Apple" && "bg-primary hover:bg-primary text-white"
+						} relative inline-block`}>
+						<Menu.Button className={`flex items-center `}>
 							Apple <IoChevronDownSharp />{" "}
 						</Menu.Button>
 						<Menu.Items className="absolute z-40 right-0 origin-top-right mt-2 bg-white text-primary  shadow-lg ">
-							<Menu.Item onclick={()=>filterProducts( "Apple", "Iphone", "Apple")}>
-								<div className="dropdown-link" >
-									Iphones
-								</div>
+							<Menu.Item
+								onClick={() => filterProducts("Apple", "Iphone", "Apple")}>
+								<div className="dropdown-link">Iphones</div>
 							</Menu.Item>
-							<Menu.Item onclick={()=>filterProducts( "Apple", "Mac","Apple")}>
-								<div className="dropdown-link" >
-									Mac
-								</div>
+							<Menu.Item
+								onClick={() => filterProducts("Apple", "Mac", "Apple")}>
+								<div className="dropdown-link">Mac</div>
 							</Menu.Item>
 
-							<Menu.Item onclick={()=>filterProducts( "Apple", "Vision Pro","Apple")}>
-								<div className="dropdown-link" >
-									Vision Pro
-								</div>
+							<Menu.Item
+								onClick={() => filterProducts("Apple", "Vision Pro", "Apple")}>
+								<div className="dropdown-link">Vision Pro</div>
 							</Menu.Item>
-							<Menu.Item onclick={()=>filterProducts( "Apple", "Gears", "Apple")}>
-								<div className="dropdown-link" >
-									Airpod
-								</div>
+							<Menu.Item
+								onClick={() => filterProducts("Apple", "Gears", "Apple")}>
+								<div className="dropdown-link">Airpod</div>
 							</Menu.Item>
 						</Menu.Items>
 					</Menu>
-					<button className={`sortBtn`} onclick={()=>filterProducts( "Tecno", "Andriod", "Tecno")}>
+					<button
+						className={`sortBtn hover:bg-slate-200 ${
+							activeBtn == "Tecno" && "bg-primary hover:bg-primary text-white"
+						}`}
+						onClick={() => filterProducts("Tecno", "Andriod", "Tecno")}>
 						<p>Tecno</p>
 					</button>
-					<button className={`sortBtn`} onclick={()=>{console.log("yooooooo")}}>
+					<button
+						className={`sortBtn hover:bg-slate-200 ${
+							activeBtn == "Watch" && "bg-primary hover:bg-primary text-white"
+						}`}
+						onClick={() => filterProducts("Tecno", "Andriod", "Watch")}>
 						<p>Watch</p>
 					</button>
 				</div>
 			</div>
 
-			<div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-center mx-auto">
-				{displayItems.map((product) => (
-					<ProductItem
-						product={product}
-						key={product.slug}
-						addToCartHandler={addToCartHandler}></ProductItem>
-				))}
+			<div>
+				{displayItems == null || displayItems.length == 0 ? (
+					<div className="min-h-300px w-full font-bold text-gray-800 flex items-center justify-center"> <p>No item found under that specification</p> </div>
+				) : (
+					<div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-center mx-auto">
+						{displayItems.map((product) => (
+							<ProductItem
+								product={product}
+								key={product.slug}
+								addToCartHandler={addToCartHandler}></ProductItem>
+						))}
+					</div>
+				)}
 			</div>
 		</Layout>
 	);

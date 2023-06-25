@@ -12,10 +12,13 @@ import Link from "next/link";
 import Image from "next/image"
 import { BiRightArrow, BiLeftArrow } from "react-icons/bi";
 
-export default function Home({ products, featuredProducts }) {
+
+import HomePge from "../modules/Homepage";
+
+export default function Home({featuredProducts}) {
   const [ScrollInd, setScrollInd] = useState("b");
   const ItemContainerRef = useRef();
-  console.log(products);
+  // console.log(products);
   const { state, dispatch } = useContext(Store);
   const { cart } = state;
 
@@ -34,68 +37,21 @@ export default function Home({ products, featuredProducts }) {
 
   return (
     <Layout title="Market HomePge">
+      <HomePge />
       <div className="mt-[10vh] w-screen">
-        <Carousel showThumbs={false} autoPlay>
-          {featuredProducts.map((product) => (
-            <div key={product._id}>
-              <Link href={`/product/${product.slug}`} passHref>
-                <a className="flex">
-                  <div className="relative w-[300px] h-[300px]">
-                    <Image src={product.banner} alt={product.name} fill styles={{objectFit:"cover"}} />
-                  </div>
-                  
-                </a>
-              </Link>
-            </div>
-          ))}
-        </Carousel>
         <h2 className="h2 my-4 font-bold underlined">Latest Products</h2>
         <div
           className="flex items-center justify-start gap-3 no-scrollbar overflow-x-auto  w-[90%]"
-          onScroll={(e) => {
-            const { scrollWidth, scrollLeft, offsetWidth } = e.target;
-            const SL = Math.ceil(scrollLeft + offsetWidth);
-            if (scrollLeft <= 0) setScrollInd("b");
-            if (scrollLeft > 0 && scrollLeft < scrollWidth) setScrollInd("m");
-            if (SL >= scrollWidth) setScrollInd("e");
-          }}
-          ref={ItemContainerRef}
+   
           >
-          {products.map((product) => (
+          {featuredProducts.map((product) => (
             <ProductItem
               product={product}
               key={product.slug}
               addToCartHandler={addToCartHandler}></ProductItem>
           ))}
         </div>
-        <div className="w-[100%] flex items-center justify-end px-[10vw] py-[3vh] ">
-          <div
-            className="blogNavs"
-            active={ScrollInd === "e" || ScrollInd === "m"}>
-            <BiLeftArrow
-              onClick={() => {
-                ItemContainerRef.current.scroll({
-                  left: ItemContainerRef.current.scrollLeft - 200,
-                  behavior: "smooth",
-                });
-              }}
-              size={30}
-            />
-          </div>
-          <div
-            className="blogNavs"
-            active={ScrollInd === "b" || ScrollInd === "m"}>
-            <BiRightArrow
-              onClick={() => {
-                ItemContainerRef.current.scroll({
-                  left: ItemContainerRef.current.scrollLeft + 200,
-                  behavior: "smooth",
-                });
-              }}
-              size={30}
-            />
-          </div>
-        </div>
+
       </div>
     </Layout>
   );

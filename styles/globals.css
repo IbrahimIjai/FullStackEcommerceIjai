@@ -20,11 +20,11 @@ body {
 }
 
 .card {
-  @apply relative mb-5 mx-auto border overflow-hidden  w-[300px]   rounded-xl border border-gray-200  shadow-md;
+  @apply relative mb-5 mx-auto border overflow-hidden  w-[300px]   rounded-xl border-gray-200  shadow-md;
 }
 
 .sortBtn{
-  @apply p-2 mr-8 border font-semibold border-primary rounded-xl hover:bg-slate-200 transition-all duration-700 cursor-pointer;
+  @apply p-2 mr-8 border font-semibold border-primary rounded-xl transition-all duration-700 cursor-pointer;
 }
 .stickyDiv{
   @apply  sticky top-[80px]; 
