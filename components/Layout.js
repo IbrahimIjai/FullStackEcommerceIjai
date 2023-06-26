@@ -20,7 +20,7 @@ export default function Layout({ title, children }) {
 			<div className="min-h-screen flex flex-col  justify-between">
 				<>
 				<Navbar />
-				<main className="w-screen mt-[80px]">{children}</main></>
+				<main className="w-screen overflow-x-hidden mt-[80px]">{children}</main></>
 
 				<Footer />
 			</div>

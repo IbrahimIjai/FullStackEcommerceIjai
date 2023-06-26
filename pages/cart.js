@@ -10,8 +10,11 @@ import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useSession } from "next-auth/react";
 
 function CartScreen() {
+	const { status, data: session } = useSession();
+	console.log("this is the status", typeof status);
 	const router = useRouter();
 	const { state, dispatch } = useContext(Store);
 	const {
@@ -46,10 +49,20 @@ function CartScreen() {
 		}
 	};
 
+	const handleCheckout = () => {
+		if (status == "unauthenticated") {
+			router.push("/login");
+		} else {
+			router.push("/shipping");
+		}
+	};
+
 	return (
 		<Layout title="Shopping Cart">
-			<div className="px-[5%]]">
-				<h1 ref={divRef} className="w-full py-8 px-6 bg-white font-bold mb-4 text-2xl">
+			<div className="px-[5%]">
+				<h1
+					ref={divRef}
+					className="w-full py-8 px-6 bg-white font-bold mb-4 text-2xl">
 					Shopping Cart
 				</h1>
 				{cartItems.length === 0 ? (
@@ -57,10 +70,11 @@ function CartScreen() {
 						<div>
 							{" "}
 							Oopps!!! your Cart is empty.{" "}
-							<Link
-								href="/store"
-								>
-								<a className="text-blue-600 font-bold p-1 rounded-xl border border-primary"> Go to the store</a>
+							<Link href="/store">
+								<a className="text-blue-600 font-bold p-1 rounded-xl border border-primary">
+									{" "}
+									Go to the store
+								</a>
 							</Link>{" "}
 						</div>
 					</div>
@@ -126,7 +140,7 @@ function CartScreen() {
 								</li>
 								<li>
 									<button
-										onClick={() => router.push("login?redirect=/shipping")}
+										onClick={handleCheckout}
 										className="primary-button w-full">
 										Check Out
 									</button>

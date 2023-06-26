@@ -45,7 +45,7 @@ export default function ProductScreen(props) {
 							layout="responsive"></Image>
 					</div>
 					{/* <div className="flex flex-col items-center "> */}
-          <div className="md:col-span-2 mx-auto">
+					<div className="md:col-span-2 mx-auto">
 						<ul>
 							<li>
 								<h1 className="text-[1.5rem] font-semibold ">
@@ -75,13 +75,13 @@ export default function ProductScreen(props) {
 							</button>
 						</div>
 						<div>
-              <h1 className="text-2xl font-semibold">Reviews</h1>
+							<h1 className="text-2xl font-semibold">Reviews</h1>
 							{/* <li> */}
-								{product.rating} of {product.numReviews} reviews
+							{product.rating} of {product.numReviews} reviews
 							{/* </li> */}
 						</div>
 					</div>
-          {/* </div> */}
+					{/* </div> */}
 				</div>
 			</div>
 		</Layout>

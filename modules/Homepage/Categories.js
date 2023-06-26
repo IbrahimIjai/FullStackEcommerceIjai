@@ -9,6 +9,7 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 import React from "react";
 import Image from "next/image";
 import useMediaQuery from "../../hooks/useMediaQueryhooks";
+import Link from "next/link";
 
 function Category() {
 	const isDesktop = useMediaQuery("(min-width: 850px)");
@@ -33,9 +34,11 @@ function Category() {
 							</div>
 							<h1 className="text-2xl my-6 font-semibold">{item.name}</h1>
 							<p>{item.desc}</p>
-							<button className="mt-6 border-b-1 flex items-center gap-6 p-2 hover:border-primary shadow-md">
-								Explore category <AiOutlineArrowRight />
-							</button>
+							<Link href="/store">
+								<a className="mt-6 border-b-1 flex items-center gap-6 p-2 hover:border-primary shadow-md">
+									Explore category <AiOutlineArrowRight />
+								</a>
+							</Link>
 						</div>
 					);
 				})}

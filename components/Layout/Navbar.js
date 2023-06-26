@@ -63,7 +63,7 @@ export default function Navbar() {
 					</button>
 				</form>
 
-				<div className="flex items-center justify-center md:space-x-4 ">
+				<div className="flex items-center justify-center gap-4 md:space-x-4 ">
 					{isDesktop && (
 						<Link href="/store">
 							<a className="font-bold text-primary hover:scale-105 transition-all duration-700">
@@ -108,7 +108,7 @@ export default function Navbar() {
 							<Menu.Items className="absolute right-0 w-56 origin-top-right bg-white  shadow-lg ">
 								<Menu.Item>
 									<DropdownLink className="dropdown-link" href="/profile">
-										Profile
+										Update Profile
 									</DropdownLink>
 								</Menu.Item>
 								<Menu.Item>
