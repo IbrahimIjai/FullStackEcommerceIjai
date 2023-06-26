@@ -28,7 +28,7 @@ export default function LoginScreen() {
   } = useForm();
   const submitHandler = async ({ name, email, password }) => {
     try {
-      await axios.post('/api/auth/signup', {
+      await axios.post('/api/signup', {
         name,
         email,
         password,
