@@ -1,6 +1,6 @@
 import React from 'react';
 import Heros from './Heros';
-import Category from './categories';
+import Category from './Categories';
 // import FeaturedProduct from './FeaturedProduct';
 export default function HomePge() {
   return (
