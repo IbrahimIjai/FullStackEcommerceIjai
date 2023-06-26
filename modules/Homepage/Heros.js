@@ -1,7 +1,7 @@
 /** @format */
 
 import React from "react";
-import Img1 from "../../public/images/Heros1.png";
+import Img1 from "../../public/images/heros1.png";
 import Img2 from "../../public/images/Heros2.png";
 import Img3 from "../../public/images/Heros3.png";
 import Img4 from "../../public/images/Heros4.png";
