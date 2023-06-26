@@ -13,7 +13,7 @@ import { toast } from "react-toastify";
 import { useSession } from "next-auth/react";
 
 function CartScreen() {
-	const { status, data: session } = useSession();
+	const { status } = useSession();
 	console.log("this is the status", typeof status);
 	const router = useRouter();
 	const { state, dispatch } = useContext(Store);

@@ -1,7 +1,7 @@
 /** @format */
 
 import axios from "axios";
-import { useContext, useState, useRef } from "react";
+import { useContext } from "react";
 import { toast } from "react-toastify";
 import Layout from "../components/Layout";
 import ProductItem from "../components/ProductItem";
@@ -13,7 +13,7 @@ import Link from "next/link";
 
 import HomePge from "../modules/Homepage";
 
-export default function Home({ featuredProducts, products }) {
+export default function Home({ featuredProducts }) {
 	const { state, dispatch } = useContext(Store);
 	const { cart } = state;
 
@@ -35,11 +35,11 @@ export default function Home({ featuredProducts, products }) {
 			<HomePge />
 			<div className="mt-[10vh] mx-auto  w-[90%]">
 				<div>
-					{products.length > 0 && (
+					{featuredProducts.length > 0 && (
 						<div>
 							<h2 className="h2 font-Semi text-2xl my-12">Latest Products</h2>
 							<div className="grid gap-5 md:grid-cols-3">
-								{products.map((product) => (
+								{featuredProducts.map((product) => (
 									<ProductItem
 										product={product}
 										key={product.slug}

@@ -1,7 +1,7 @@
 /** @format */
 
 import DropdownLink from "../DropdownLink";
-import { AiOutlineShoppingCart, AiOutlineUser } from "react-icons/ai";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 import { FaAssistiveListeningSystems } from "react-icons/fa";
 import Cookies from "js-cookie";
 import { Menu } from "@headlessui/react";
@@ -13,7 +13,6 @@ import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import * as Avatar from "@radix-ui/react-avatar";
-import testImg from "../../public/images/shirt1.jpg";
 
 export default function Navbar() {
 	const isDesktop = useMediaQuery("(min-width: 850px)");
